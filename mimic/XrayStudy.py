@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import Xray
-import Patient
+from mimic.Xray import Xray
+from mimic.Patient import Patient
 from typing import List
 
 class XrayStudy(object):

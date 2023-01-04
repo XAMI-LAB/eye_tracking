@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import XrayStudy
+from mimic.XrayStudy import XrayStudy
 from typing import List
 
 class Xray(object):

@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from abc import ABCMeta, abstractmethod
-import Xray
-import RadiologistAdapter
+from mimic.Xray import Xray
+from RadiologistAdapter import RadiologistAdapter
 from typing import List
 
 class Radiologist(object):

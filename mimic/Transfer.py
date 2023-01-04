@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import Admission
+from mimic.Admission import Admission
 from typing import List
 
 class Transfer(object):

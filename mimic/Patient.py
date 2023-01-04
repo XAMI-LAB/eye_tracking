@@ -1,10 +1,39 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import Admission
-import XrayStudy
+from mimic.Admission import Admission
+from mimic.XrayStudy import XrayStudy
+
 from typing import List
 
 class Patient(object):
+    	
+	def __init__(self):
+		self.__iD : str = None
+		"""It is a unique identifier which specifies an individual patient"""
+		self.__gender : str = None
+		"""It is the genotypical sex of the patient"""
+		self.__language : str = None
+		self.__marital_status : str = None
+		self.__ethnicity : str = None
+		self.__anchor_age : int = None
+		"""It is the patient’s age in the anchor_year.
+		If a patient’s anchor_age is over 89 in the anchor_year then their anchor_age is set to 91, regardless of how old they actually were."""
+		self.__anchor_year : int = None
+		"""It is a shifted year for the patient"""
+		self.__date_of_death : str = None
+		self.__anchor_year_group : str = None
+		"""It is a range of years - the patient’s anchor_year occurred during this range."""
+		self.__admission_dict : dict = None
+		"""a dictionary indicating the multiple admissions of the patient to the hospital"""
+		self.__xray_study_dict : dict = None
+		self.unnamed_XrayStudy_ = []
+		"""# @AssociationMultiplicity 1..*
+		# @AssociationKind Composition"""
+		self.unnamed_Admission_ = []
+		"""# @AssociationMultiplicity 1..*
+		# @AssociationKind Composition"""
+
+
 	def add_admission(self, new_admission : Admission) -> None:
 		"""adds an admission record to the patient admission list"""
 		pass
@@ -17,6 +46,10 @@ class Patient(object):
 
 	def remove_xray_study(self, xray_study : XrayStudy) -> None:
 		pass
+
+
+
+ # Getters and Setters --------------------------------------------
 
 	def getID(self) -> str:
 		return self.__iD
@@ -81,29 +114,4 @@ class Patient(object):
 	def getXray_study_dict(self) -> dict:
 		return self.__xray_study_dict
 
-	def __init__(self):
-		self.__iD : str = None
-		"""It is a unique identifier which specifies an individual patient"""
-		self.__gender : str = None
-		"""It is the genotypical sex of the patient"""
-		self.__language : str = None
-		self.__marital_status : str = None
-		self.__ethnicity : str = None
-		self.__anchor_age : int = None
-		"""It is the patient’s age in the anchor_year.
-		If a patient’s anchor_age is over 89 in the anchor_year then their anchor_age is set to 91, regardless of how old they actually were."""
-		self.__anchor_year : int = None
-		"""It is a shifted year for the patient"""
-		self.__date_of_death : str = None
-		self.__anchor_year_group : str = None
-		"""It is a range of years - the patient’s anchor_year occurred during this range."""
-		self.__admission_dict : dict = None
-		"""a dictionary indicating the multiple admissions of the patient to the hospital"""
-		self.__xray_study_dict : dict = None
-		self.unnamed_XrayStudy_ = []
-		"""# @AssociationMultiplicity 1..*
-		# @AssociationKind Composition"""
-		self.unnamed_Admission_ = []
-		"""# @AssociationMultiplicity 1..*
-		# @AssociationKind Composition"""
 

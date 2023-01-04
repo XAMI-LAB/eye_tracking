@@ -1,13 +1,12 @@
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
-from typing import List
+from enum import Enum
+import matplotlib
 
-class Constants(object):
+class Constants(Enum):
 	"""Extends from Pythons Enum class"""
 	def __init__(self):
 		self.__dATASET_PATH : str = None
 		self.__cOLS : dict = None
-		"""COLS = { "butter": [ '#fce94f',
+		COLS = { "butter": [ '#fce94f',
 		'#edd400',
 		'#c4a000'],
 		"orange": [ '#fcaf3e',
@@ -34,9 +33,9 @@ class Constants(object):
 		'#888a85',
 		'#555753',
 		'#2e3436'],
-		}"""
+		}
 		self.__fONT : dict = None
-		"""FONT = { 'family': 'Ubuntu',
+		FONT = { 'family': 'Ubuntu',
 		'size': 12}
-		matplotlib.rc('font', **FONT)"""
+		matplotlib.rc('font', **FONT)
 
