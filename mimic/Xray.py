@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from mimic.XrayStudy import XrayStudy
+
 from typing import List
 
 class Xray(object):
@@ -27,8 +27,3 @@ class Xray(object):
 		"""The Xray ID corresponds to the DICOM filename"""
 		self.__report : str = None
 		self.__path : str = None
-		self.contains : XrayStudy = None
-		"""# @AssociationMultiplicity 1"""
-		self.unnamed_Radiologist_ = []
-		"""# @AssociationMultiplicity 0..*"""
-

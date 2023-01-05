@@ -26,12 +26,6 @@ class Patient(object):
 		self.__admission_dict : dict = None
 		"""a dictionary indicating the multiple admissions of the patient to the hospital"""
 		self.__xray_study_dict : dict = None
-		self.unnamed_XrayStudy_ = []
-		"""# @AssociationMultiplicity 1..*
-		# @AssociationKind Composition"""
-		self.unnamed_Admission_ = []
-		"""# @AssociationMultiplicity 1..*
-		# @AssociationKind Composition"""
 
 
 	def add_admission(self, new_admission : Admission) -> None:

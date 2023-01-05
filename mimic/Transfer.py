@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from mimic.Admission import Admission
+
 from typing import List
 
 class Transfer(object):
@@ -37,5 +37,5 @@ class Transfer(object):
 		self.__care_unit : str = None
 		self.__intime : str = None
 		self.__outtime : str = None
-		self.unnamed_Admission_ : Admission = None
+
 

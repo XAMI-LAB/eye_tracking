@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from mimic.Xray import Xray
-from mimic.Patient import Patient
 from typing import List
 
 class XrayStudy(object):
@@ -23,9 +22,4 @@ class XrayStudy(object):
 	def __init__(self):
 		self.__iD : str = None
 		self.__xray_lst : Xray = []
-		self.takes : Patient = None
-		"""# @AssociationMultiplicity 1"""
-		self.unnamed_Xray_ = []
-		"""# @AssociationMultiplicity 1..*
-		# @AssociationKind Composition"""
 

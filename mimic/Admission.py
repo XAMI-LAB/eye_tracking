@@ -1,6 +1,5 @@
 from mimic.Transfer import Transfer
 from mimic.EDStay import EDStay
-from mimic.Patient import Patient
 from typing import List
 
 class Admission(object):
@@ -41,12 +40,6 @@ class Admission(object):
 		# 1 indicates death in the hospital, and 0 indicates survival to hospital discharge.
 		self.__hospital_expire_flag : int = None
 		
-		#@AssociationMultiplicity 1
-		self.has : Patient = None
-
-		# @AssociationKind Aggregation
-		self.unnamed_Transfer_ : Transfer = None
-	
 
 
 	## GETTERS AND SETTERS
