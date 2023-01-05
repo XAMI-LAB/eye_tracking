@@ -1,16 +1,47 @@
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
-from typing import List
+"""
+Author: Catarina Moreira
+E-Mail: catarina.p.moreira@tecnico.ulisboa.pt
+Date: January 5, 2023
+"""
+import os
+import pickle as pkl
 
-class MIMIC_EYE(object):
-	def init_mimic_eye(self) -> None:
-		"""loads a previously saved state into the variables in Contants class"""
-		pass
+from Constants import Constants as c
 
-	def save_state(self) -> None:
-		"""saves all information in Constants to a pickle format"""
-		pass
+# Singleton class
+# it is only instanciated once
+class MIMIC_EYE():
+  
+	_instance = None
 
-	def load_state(self) -> None:
-		pass
+	# starts a singleton instance
+	# if the user tries to create more than one instance, it will raise an exception
+	def __new__(cls):
+		if not cls._instance:
+				cls._instance = super(MIMIC_EYE, cls).__new__(cls)
+				return cls._instance
+		else:
+				raise Exception("[ERROR] MIMIC_EYE is a Singleton class and can only be instanciated ONCE!")
+	
+	# loads the previous state of the application
+	# if it does not exist, it will create a new one by creating a new cache with the MIMIC_EYE database 
+	def start(self):
+		if os.path.exists( c.CACHE_PATH ):
+				self.load_state()
+		else:
+				self.initialize_mimic_eye()
 
+	# saves the current state of the system, which is stored in the Constants.CACHE global variable
+	def save_state(self):
+			pkl.dump( c.CACHE, open( c.CACHE_PATH, "wb" ) )
+
+	# loads a previously saved pickle file containing the cache dictionary
+	# the contents are stored in the Constants.CACHE global variable
+	def load_state(self):
+			c.CACHE = pkl.load(  c.CACHE_PATH )
+
+	def initialize_mimic_eye(self):
+			self.load_eyegaze_dataset()
+
+	def load_eyegaze_dataset(self):
+  		pass
