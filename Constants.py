@@ -4,9 +4,18 @@ import os
 
 class Constants():
 
+	# only change this path!
 	# main path where the dataset is stored
-	DATASET_PATH = os.path.join("", "Volumes", "SD_DISK", "XAMI-MIMICv2.0", "")
+	DATASET_PATH = os.path.join("/", "Volumes", "SD_DISK", "XAMI-MIMICv2.0", "")
 
+	# mimic core path
+	MIMIC_CORE_TABLES = ["patients", "admissions", "transfers"]
+	MIMIC_CORE_PATH = lambda dataset_path, patient_id, table: os.path.join(dataset_path, "patient_" + str(patient_id), "Core",  table +".csv" )
+
+	# mimic ed paths
+	MIMIC_ED_TABLES = ["diagnosis", "edstays", "medrecon", "pyxis", "triage"]
+	MIMIC_ED_PATH = lambda dataset_path, patient_id, table: os.path.join(dataset_path, "patient_" + str(patient_id), "ED",  table + ".csv" )
+	
 	# main path where MIMIC-EYE's state will be saved
 	CACHE_PATH = os.path.join(".", "cache", "mimic_eye_state.pkl")
 	
@@ -33,8 +42,4 @@ class Constants():
 			"skyblue": [ '#729fcf', '#3465a4', '#204a87'],
 			"plum": [ '#ad7fa8', '#75507b', '#5c3566'],
 			"scarletred":[ '#ef2929', '#cc0000', '#a40000'],
-			"aluminium": [ '#eeeeec', '#d3d7cf', '#babdb6', '#888a85', '#555753', '#2e3436'],
-	}
-
-		
-
+			"aluminium": [ '#eeeeec', '#d3d7cf', '#babdb6', '#888a85', '#555753', '#2e3436'],}
