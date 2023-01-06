@@ -1,9 +1,10 @@
 
 from mimic.Xray import Xray
+from mimic.Annotation import Annotation
 
 class XrayStudy( ):
   	
-	def __init__(self, studyId : str, Xray_lst):
+	def __init__(self, studyId : str, Xray_lst, annotation_lst : list):
 		self.ID : str = studyId
 		self.Xray_lst : Xray = Xray_lst
 

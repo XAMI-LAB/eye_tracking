@@ -16,6 +16,7 @@ class Annotation(ABC):
 
     self.width = np.abs(xmax - xmin)
     self.height = np.abs(ymax - ymin)
+    self.center = [self.width/2, self.height/2 ]
 
   @abstractmethod
   def process_shape(self):
@@ -33,9 +34,15 @@ class Annotation(ABC):
     pass
 
   @abstractmethod
-  def isPointInsideShape(self, x:float, y:float):
+  def is_point_inside_shape(self, x:float, y:float):
     """checks whether a coordinate (x,y) sits inside of a polygon"""
     pass
+
+  @abstractmethod
+  def plot_shape_and_point(self, x : float, y : float):
+    """plots a shape and point"""
+    pass
+
 
   def getXmin(self):
     return self.xmin
