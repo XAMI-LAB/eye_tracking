@@ -15,6 +15,24 @@ class Constants():
 	# mimic ed paths
 	MIMIC_ED_TABLES = ["diagnosis", "edstays", "medrecon", "pyxis", "triage"]
 	MIMIC_ED_PATH = lambda dataset_path, patient_id, table: os.path.join(dataset_path, "patient_" + str(patient_id), "ED",  table + ".csv" )
+
+	# mimic cxr paths
+	MIMIC_DICOM_PATH = lambda dataset_path, patient_id, study_id, dicom_id: os.path.join(dataset_path, "patient_" + str(patient_id), "CXR-DICOM", study_id, dicom_id + ".dcm")
+	MIMIC_JPG_PATH   = lambda dataset_path, patient_id, study_id, dicom_id: os.path.join(dataset_path, "patient_" + str(patient_id), "CXR-JPG",   study_id, dicom_id + ".jpg")
+	MIMIC_CXR_REPORT = lambda dataset_path, patient_id, study_id: os.path.join(dataset_path, "patient_" + str(patient_id), "CXR-DICOM", study_id + ".txt")
+
+	# mimic cxr neg bio annotations
+	MIMIC_NEG_BIO_PATH = lambda dataset_path, patient_id: os.path.join(dataset_path, "patient_" + str(patient_id), "CXR-JPG", "cxr_negbio.csv" )
+
+	# mimic cxr chexpert annotations
+	MIMIC_CHEXPERT_PATH = lambda dataset_path, patient_id: os.path.join(dataset_path, "patient_" + str(patient_id), "CXR-JPG", "cxr_chexpert.csv" )
+
+	# mimic cxr metadata
+	MIMIC_CHEXPERT_PATH = lambda dataset_path, patient_id: os.path.join(dataset_path, "patient_" + str(patient_id), "CXR-JPG", "cxr_meta.csv" )
+
+
+	# eye gaze bounding boxes
+	EYE_GAZE_BBOX_PATH = lambda dataset_path, patient_id : os.path.join(dataset_path, "patient_" + str(patient_id), "EyeGaze", "bounding_boxes.csv" )
 	
 	# main path where MIMIC-EYE's state will be saved
 	CACHE_PATH = os.path.join(".", "cache", "mimic_eye_state.pkl")

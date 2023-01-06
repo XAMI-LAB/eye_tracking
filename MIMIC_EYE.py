@@ -8,15 +8,18 @@ import pickle as pkl
 
 from Constants import Constants as c
 
+
 # Singleton class
 # it is only instanciated once
 class MIMIC_EYE():
-  
+  	
+	# singleton instance
 	_instance = None
 
 	# starts a singleton instance
 	# if the user tries to create more than one instance, it will raise an exception
 	def __new__(cls):
+		"""MIMIC_EYE Constructor"""
 		if not cls._instance:
 				cls._instance = super(MIMIC_EYE, cls).__new__(cls)
 				return cls._instance
@@ -26,6 +29,7 @@ class MIMIC_EYE():
 	# loads the previous state of the application
 	# if it does not exist, it will create a new one by creating a new cache with the MIMIC_EYE database 
 	def start(self):
+		"""start function """
 		if os.path.exists( c.CACHE_PATH ):
 				self.load_state()
 		else:
@@ -33,15 +37,19 @@ class MIMIC_EYE():
 
 	# saves the current state of the system, which is stored in the Constants.CACHE global variable
 	def save_state(self):
-			pkl.dump( c.CACHE, open( c.CACHE_PATH, "wb" ) )
+		"""save_state function """
+		pkl.dump( c.CACHE, open( c.CACHE_PATH, "wb" ) )
 
 	# loads a previously saved pickle file containing the cache dictionary
 	# the contents are stored in the Constants.CACHE global variable
 	def load_state(self):
-			c.CACHE = pkl.load(  c.CACHE_PATH )
+		"""load_state function """
+		c.CACHE = pkl.load(  c.CACHE_PATH )
 
 	def initialize_mimic_eye(self):
-			self.load_eyegaze_dataset()
+		"""initialize_mimic_eye function """
+		self.load_eyegaze_dataset()
 
 	def load_eyegaze_dataset(self):
-  		pass
+		"""load_eyegaze_dataset function """
+		pass
