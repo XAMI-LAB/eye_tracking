@@ -30,7 +30,6 @@ class Constants():
 	# mimic cxr metadata
 	MIMIC_CHEXPERT_PATH = lambda dataset_path, patient_id: os.path.join(dataset_path, "patient_" + str(patient_id), "CXR-JPG", "cxr_meta.csv" )
 
-
 	# eye gaze bounding boxes
 	EYE_GAZE_BBOX_PATH = lambda dataset_path, patient_id : os.path.join(dataset_path, "patient_" + str(patient_id), "EyeGaze", "bounding_boxes.csv" )
 	
@@ -47,8 +46,6 @@ class Constants():
 						"XRAY_TO_DIAGNOSIS" : {},		# dictionary mapping an XRayID to a Diagnosis (Eye Gaze only)
 						"XRAY_TO_ABNORMALITY" : {},	# dictionary mapping an XRayID to an Abnormality
 	}
-
-
 
 	# for display purposes ----------------------------------------------
 	FONT = { 'family': 'Ubuntu', 'size': 12}

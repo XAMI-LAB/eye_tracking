@@ -1,7 +1,10 @@
 
 import numpy as np
 
-class BoundingBox:
+from mimic.Annotation import Annotation
+
+
+class BoundingBox():
 
   def __init__(self, xmin : float, xmax : float, ymin : float, ymax : float, label : str):
     self.xmin : float = xmin
